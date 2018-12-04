@@ -45,5 +45,34 @@ function HashMap(){
         }
         obj[key] = value;
     };
-
+    //delete a value by given Key..
+    this.remove = function (key){
+        if(this.containsKey(key)&&(delete obj[key])){
+            length --;
+        }
+    };
+    //get all Values in Map
+    this.value = function(){
+        var _values = new Array();
+        for(var key in obj){
+            _values.push(obj[key]);
+        }
+        return _values;
+    }
+    this.keySet = function(){
+        var _keys = new Array();
+        for(var key in obj){
+            _keys.push(key);
+        }
+        return _keys;
+    }
+    //get the length of Map
+    this.size = function(){
+        return length;
+    };
+    //clean Map
+    this.clear = function(){
+        length = 0;
+        obj = new Object();
+    };
 }
