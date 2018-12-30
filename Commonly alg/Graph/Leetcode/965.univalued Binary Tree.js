@@ -9,21 +9,24 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-
-//
-function isUnivalTree(TreeNode,root) {
-    if (root.left != null) {
-        if (!isUnivalTree(root.left))
-            return false;
-        if (root.left.val != root.val)
-            return false;
-    }
-
-    if (root.right != null) {
-        if (!isUnivalTree(root.right))
-            return false;
-        if (root.right.val != root.val)
-            return false;
-    }
-    return true;
-}
+var isUnivalTree = function(root) {
+    let isUnival = true;
+    let rootValue = root.val;
+    
+    let traversal = function(node) {
+        if (!node) {
+            return;
+        }
+        
+        if (node.val !== rootValue) {
+            isUnival = false;
+            return;
+        }
+        
+        traversal(node.left);
+        traversal(node.right);
+    };
+    traversal(root);
+    
+    return isUnival;
+};
