@@ -3,7 +3,8 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target){
+//fancy solution, 52ms
+ var twoSum = function(nums, target){
       
 
     const numsMap={};
@@ -15,4 +16,15 @@ var twoSum = function(nums, target){
         numsMap[nums[i]] = i;
     }
     return [];
+}
+
+//regular solution, runtime: 120ms
+var twoSum = function(nums, target){
+   for(let i = 0, len = nums.length; i < len; i++){
+       for(let j = i + 1; j < len; j++){
+           if(nums[i]+nums[j] === target){
+               return [i,j]
+           }
+       }
+   }
 }

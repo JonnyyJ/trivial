@@ -9,24 +9,22 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isUnivalTree = function(root) {
+var isUnivalTree = function(root){
     let isUnival = true;
     let rootValue = root.val;
-    
-    let traversal = function(node) {
-        if (!node) {
+
+    let traversal = function(node){
+        if(!node){
             return;
         }
-        
-        if (node.val !== rootValue) {
+        if(node.val !== rootValue){
             isUnival = false;
             return;
         }
-        
         traversal(node.left);
         traversal(node.right);
     };
     traversal(root);
-    
+
     return isUnival;
 };

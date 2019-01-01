@@ -46,7 +46,7 @@ let Pathmatrix = [] //used for storing the array which has the shortest path sub
 let ShortPathTable = [] //used for storing the weight of shortest path of each point
 
 function Dijkstra(){
-    let k, min;
+    let k,min;
     let final = [];
     for (let v = 0; v < G.numVertexes; v++){
         final[v] = 0;
