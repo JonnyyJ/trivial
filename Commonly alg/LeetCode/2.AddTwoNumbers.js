@@ -10,37 +10,58 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2){
-    let head = new ListNode(0)
-    let cur = head
-    let curry = 0
+//ordinary solution
+ var addTwoNumbers = function(l1, l2) {
+    let List = new ListNode(0);
+    let head = List;
+    let sum = 0;
+    let carry = 0;
 
-    while (true){
-        let sum = curry
-        sum += l1 ? l1.val : 0
-        sum += l2 ? l2.val : 0
-        cur.val = sum % 10
-        curry = parseInt(sum / 10)
-        if (l1) l1 = l1.next
-        if (l2) l2 = l2.next
-        if (l1 != null || l2 != null){
-            cur.next = new ListNode(0)
-            cur = cur.next
-        }else{
-            break
+    while(l1 !== null || l2 !== null || sum > 0){
+
+        if(l1 !== null){
+            sum += l1.val;
+            l1 = l1.next;
         }
+        if(l2 !== null){
+            sum += l2.val;
+            l2 = l2.next;
+        }
+        if(sum >= 10){
+            carry = 1;
+            sum = sum - 10;
+        }
+
+        head.next = new ListNode(sum);
+        head = head.next;
+
+        sum = carry;
+        carry = 0;
+
     }
-    if (curry != 0){
-        cur.next = new ListNode(0)
-        cur = cur.next
-        cur.var = curry
-    }
-    return head
+
+    return List.next;
 };
 
-var l1 = new ListNode(1)
-l1.next = new ListNode(8)
+//concise solution
 
-var l2 = new ListNode(0)
-
-console.log(addTwoNumbers(l1,l2))
+function addTwoNumbers(l1, l2) {
+    const before = new ListNode();
+    let tail = before;
+    let c = 0;
+  
+    while (l1 || l2 || c) {
+      const v1 = l1 ? l1.val : 0;
+      const v2 = l2 ? l2.val : 0;
+      const v = v1+v2+c;
+  
+      tail.next = new ListNode(v%10);
+      tail = tail.next;
+      c = v >= 10 ? 1 : 0;
+      l1 = l1&&l1.next;
+      l2 = l2&&l2.next;
+    }
+  
+    return before.next;
+  }
+  
