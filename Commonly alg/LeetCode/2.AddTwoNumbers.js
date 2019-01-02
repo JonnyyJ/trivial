@@ -29,7 +29,7 @@
         }
         if(sum >= 10){
             carry = 1;
-            sum = sum - 10;
+            sum -= 10;
         }
 
         head.next = new ListNode(sum);
