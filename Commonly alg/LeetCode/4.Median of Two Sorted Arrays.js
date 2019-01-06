@@ -18,6 +18,7 @@ var findMedianSortedArraysBasic = function(nums1, nums2) {
     return first;
   };
   
+  
   // With explanation from video
   
   var findMedianSortedArrays = function(nums1, nums2) {
