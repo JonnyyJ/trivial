@@ -1,7 +1,9 @@
 /**
  * @param {number} n
  * @return {string[]}
- * Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+ * Given n pairs of parentheses, 
+ * write a function to generate all 
+ * combinations of well-formed parentheses.
  */
 function generateParenthesis(n) {
     let res = [];
@@ -9,7 +11,8 @@ function generateParenthesis(n) {
     return res;
   }
   
-  function generate(l, r, s, res) { // l: left remaining, r: right remaining
+  function generate(l, r, s, res) { 
+    // l: left remaining, r: right remaining
     if (l > r) return;  // e.g. ))(
   
     if (!l && !r) return res.push(s);

@@ -2,46 +2,33 @@
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function(s) {
-    let res = "";
-    let cur = "";
-    for(let i = 0; i < s.length; i ++){
-        for(let j = i; j < i + 2; j ++){
-            let left = i;
-            let right = j;
-            while(s[left] && s[left] === s[right]){
-                cur = s.substring(left, right + 1);
-                if(cur.length > res.length) res = cur;
-                left --;
-                right ++;
-            }
-        }
+function longestPalindrome(s) {
+    let maxLeft = 0;
+    let maxRight = 0;
+  
+    for (let i = 0; i < s.length; i++) {
+      let left = i;
+      let right = i;
+  
+      // Handle palindromes with even length
+      while (right + 1 < s.length && s.charAt(left) === s.charAt(right + 1)) {
+        right += 1;
+      }
+  
+      // Expand outward
+      while (left - 1 >= 0 && right + 1 < s.length && s.charAt(left - 1) === s.charAt(right + 1)) {
+        left -= 1;
+        right += 1;
+      }
+  
+      if (right - left > maxRight - maxLeft) {
+        maxRight = right;
+        maxLeft = left;
+      }
     }
-    return res;
-};
+  
+    return s.slice(maxLeft, maxRight + 1);
+  }
 
-var longestPalindrome = function(s){
-    let res = ""
-    function checkPalindrome(l, r){
-      while (l >= 0 && r < s.length){
-              if (s[l] == s[r]){
-                  l -= 1;
-                  r += 1;
-              } else{
-                  break;
-              }
-          }
-          l += 1;
-          r -= 1;
-          if (r - l + 1 > res.length){
-              res = s.substring(1, r + 1);
-          }
-      }
-      for (let i = 0; i < s.length; i++){
-          if (i > 0 && s[i] == s[i - 1]){
-              checkPalindrome(i - 1, i);
-          }
-          checkPalindrome(i, i);
-      }
-      return res;
-    }
+
+

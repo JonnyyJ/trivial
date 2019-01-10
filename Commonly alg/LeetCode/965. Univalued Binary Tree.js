@@ -28,3 +28,7 @@ var isUnivalTree = function(root){
 
     return isUnival;
 };
+var isUnivalTree = function(root){
+    let isUnival = true;
+    let rootValue = root.val;
+}
