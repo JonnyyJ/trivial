@@ -3,10 +3,11 @@
 Vue.component('coupon', {
 
     props: ['code'],
-
+    //key
     template: `
     <input type="text" :value="code" @input="updateCode($event.target.value)" ref="input">
     `,
+    
 
     data(){
         return{
