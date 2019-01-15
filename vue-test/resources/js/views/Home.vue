@@ -1,11 +1,18 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-default">
-                    <div class="card-header">Home Page</div>
+        <div class="colums">
+            <div class="colum">
+                <div class="message" v-for="status in statuses">
+                    <div class="message-header">jonnyy </div>
+                       <p>
+                            {{ status.user.name}} said... 
+                       </p>
 
-                    <div class="card-body">
+                       <p>
+
+                          A moment ago... 
+                       </p>
+                    <div class="message-body" v-text="status.body">
                         I'm an example component.
                     </div>
                 </div>
@@ -16,8 +23,16 @@
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+              data(){
+                  return{
+                      statuses: []
+                  }
+              },
+
+              created(){
+                  axios.get('/statuses')
+                   .then(({data}) => this.statuses = data);
+              }
         }
-    }
+    
 </script>
