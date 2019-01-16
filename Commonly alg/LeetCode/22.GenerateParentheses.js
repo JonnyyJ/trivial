@@ -20,3 +20,5 @@ function generateParenthesis(n) {
     if (l) generate(l - 1, r, s + '(', res);
     if (r) generate(l, r - 1, s + ')', res);
   }
+
+  //...
