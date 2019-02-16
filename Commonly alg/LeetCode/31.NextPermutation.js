@@ -48,36 +48,3 @@ var nextPermutation = function(nums) {
         right -= 1;
     }
 };
-//test
-var test = function(nums){
-    let swapIdx1, swapIdx2;
-    for(let i = nums.length - 1; i>= 0; i--){
-        if(nums[i] > nums[i-1]){
-            swapIdx1 = i - 1;
-            break;
-        }
-    }
-    if(swapIdx1 === undefined){
-        nums.reverse();
-        return;
-    }
-    swapIdx2 = swapIdx1 + 1;
-    for(let i = swapIdx1 + 2; i < nums.length; i++){
-       if(nums[i] <= nums[swapIdx2] && nums[swapIdx1] < nums[i]){
-           swapIdx2 = i;
-       }
-    }
-    //swap
-    const temp = nums[swapIdx1];
-    nums[swapIdx1] = nums[swapIdx2];
-    nums[swapIdX2] = temp;
-
-    let left = swapIdx1 + 1,
-        right = nums.length - 1;
-    //flip the elements after the swapIdx no.1
-    while(left < right){
-        [nums[left], nums[right]] = [nums[right], nums[left]];
-        left += 1;
-        right -= 1;
-    }
-}

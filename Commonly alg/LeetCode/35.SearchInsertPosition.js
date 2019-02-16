@@ -7,6 +7,7 @@
  * @return {number}
  */
 var searchInsert = function(nums, target) {
+    
     //boundary condition
     if(nums[0] >= target){return 0;}
     if(nums[nums.length - 1] < target){return nums.length;}

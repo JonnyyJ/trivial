@@ -14,6 +14,7 @@ var longestValidParentheses = function(s) {
            const len = stack.length
            if (len >= 2){
                stack[len - 2] += stack.pop() + 2
+               //get the longest valid parentheses
                ret = Math.max(ret, stack[len - 2])
            }  else if (len === 1){
                stack[0] = 0

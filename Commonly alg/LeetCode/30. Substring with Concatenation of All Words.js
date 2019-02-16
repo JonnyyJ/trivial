@@ -5,14 +5,14 @@
  * and without any intervening characters.
  */
 var findSubstring = function(s, words) {
-    if(s.length == 0 || words.length ==0){
+    if(s.length === 0 || words.length === 0){
         return [];
     }
     var len = words.length*words[0].length;
     if(s.length < len){
         return [];
     }
-    var  result = [];
+    var result = [];
     for(let i = 0; i < s.length - len + 1; i++){      
         str = s.substr(i, len);    
         // console.log('str: ', str);
