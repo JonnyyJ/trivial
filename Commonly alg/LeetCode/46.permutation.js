@@ -22,6 +22,12 @@ function backtrack(nums, res, n = 0) {
     }
 }
 
+var test = function(nums){
+    const res = [];
+    backtrack(nums, res);
+    return res;
+}
+
 //DP solution
 var permute = function(nums, n = 0) {
     if (n >= nums.length) return [[]];
