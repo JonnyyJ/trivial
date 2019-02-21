@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.18",
+        "laravel-mix": "^4.0.14",
         "vue": "^2.5.17"
     }
 }
