@@ -1,6 +1,7 @@
 /**
  * @param {number} n
  * @return {string[][]}
+ * N-queens
  * 1.Declare 3 sets, cols, pie, na equals to row, left slope, right slope
  * 2.If the index of queen in the cols, pie, or na, return false, if not, recursive.
  * 3.After recursive finished, we need to delete the index of cois, pie and na, finish the backtrack.
