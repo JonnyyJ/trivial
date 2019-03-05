@@ -6,15 +6,20 @@ import { fbind } from "q";
  * Given a collection of numbers that might contain duplicates,
  *  return all possible unique permutations.
 
- */
-//For each level of a tree, if we already store permutation results of a node, we can skip other nodes with the same value.
+ 
+For each level of a tree, if we already store permutation results of a node, 
+we can skip other nodes with the same value.
+*/
 var permuteUnique = function(nums) {
+    //sort the array
     nums.sort((n1, n2) => n1 - n2);
-    const results= [];
+    //delaim an array
+    const results = [];
+    //
     find(nums, [], results);
     return results;
 };
-
+//push each possible result into the array
 function find(nums, cur, results){
     if(cur.length === nums.length){
         const result = cur.map(i => nums[i]);
@@ -32,3 +37,4 @@ function find(nums, cur, results){
     }
 
 }
+
