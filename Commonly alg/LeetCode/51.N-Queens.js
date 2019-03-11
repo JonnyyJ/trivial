@@ -12,7 +12,7 @@ var solveNQueens = function(n) {
     const cols = new Set();
     const pie = new Set();
     const na = new Set();
-    
+    //Determine the node's extended search rule
     const dfs = (n, row=0, curState=[]) => {
       if (row >= n) {
         r.push(curState);
@@ -20,13 +20,14 @@ var solveNQueens = function(n) {
       }
       
       for (let col = 0; col < n; col++) {
+        //boundary condition
         if (cols.has(col) || pie.has(row - col) || na.has(row + col)) continue;
         cols.add(col);
         pie.add(row - col);
         na.add(row + col);
-        
+        //Search the solution space by deep first searching
         dfs(n, row + 1, curState.concat([col]));
-        
+        //Use the pruning function to avoid invalid search during the searching process
         cols.delete(col);
         pie.delete(row - col);
         na.delete(row + col);
