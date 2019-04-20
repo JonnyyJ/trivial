@@ -12,3 +12,12 @@ var searchMatrix = function(matrix, target) {
     
     return false;
   };
+
+ var cs = function (matrix, target){
+      for( let i = 0, len = matrix.length; i < len; i++){
+          const v = matrix[i];
+          if ( target < v[0]) return false;
+          if ( target <= v[v.length - 1]) return v.includes(target);
+      }
+      return false
+ }
