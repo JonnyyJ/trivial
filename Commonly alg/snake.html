@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rebuild snake</title>
+    <style>
+      body{
+          display: flex;
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+          justify-content: center;
+          align-items: center;
+      }
+    </style>
+</head>
+<body>
+    <canvas id ='can' width ='400' height="400" style="background-color :black">sry ur browser cannot support canvas</canvas>  
+</body>
+<script>
+  let snake = [41,40], //the snake stands for the body, initalize node exist but now show
+      direction = 1,   //1 stands for right direction, 20 stand for down, -20 stands for up
+      food = 43,       //the position of food
+      n,               //related to the next moving position
+      box = document.getElementById('can').getContext('2d');
+                       //from 0 to 399 stands for all the nodes in [0-19]*[0-19], each 20px stands for a node
+    function draw(seat, color) {
+        box.fillStyle = color;
+        box.fillRect(seat % 20 * 20 + 1, ~(seat/20) * 20 + 1, 18, 18);
+                       //use color to fill a rectangle, take the first two arguments as the value of coordinate x and y, take the second two arguments as width and height
+    }  
+    document.onkeydown = functionz(evt) {
+                    //change the direction when pressed the arrow key of keyboard
+             direction = snake[1] - snake[0] == (n = [-1, -20, 1, 20][(evt || event).keyCode - 37] || direction) ? direction : n;       
+    };
+    !function(){
+        snake.unshift(n = snake[0] + direction)
+                    //this time the n replaced for the next position of snake head, enqueue n
+                    
+
+    }             
+</script>
+</html>
