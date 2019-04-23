@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>rebuild snake</title>
     <style>
       body{
@@ -18,7 +16,7 @@
 </head>
 <body>
     <canvas id ='can' width ='400' height="400" style="background-color :black">sry ur browser cannot support canvas</canvas>  
-</body>
+
 <script>
   let snake = [41,40], //the snake stands for the body, initalize node exist but now show
       direction = 1,   //1 stands for right direction, 20 stand for down, -20 stands for up
@@ -33,13 +31,25 @@
     }  
     document.onkeydown = functionz(evt) {
                     //change the direction when pressed the arrow key of keyboard
-             direction = snake[1] - snake[0] == (n = [-1, -20, 1, 20][(evt || event).keyCode - 37] || direction) ? direction : n;       
+             direction = snake[1] - snake[0] == (n = [-1, -20, 1, 20][(evt || event).keyCode - 37] || direction) ? direction : n;   
     };
     !function(){
-        snake.unshift(n = snake[0] + direction)
+        snake.unshift(n = snake[0] + direction);
                     //this time the n replaced for the next position of snake head, enqueue n
-                    
-
-    }             
+                    if(snake.indexOf(n, 1) > 0 || n < 0 || n > 399 || direction == 1 && n % 20 == 0 || direction == -1 && n % 20 == 19) {
+                                    //the if statement determines whether the Snake hits itself or the wall, returns when it hits, and ends the program.
+                return alert("GAME OVER!");
+            }
+            draw(n, "lime");        //draw the next position where the snake head appears
+            if(n == food) {         //if eaten the food，create a random point other than body ，will not remove the tail 
+                while (snake.indexOf(food = ~~(Math.random() * 400)) > 0);
+                draw(food, "yellow");
+            } else {                //when the food is not eaten, movement normal, tail dequeue.
+                draw(snake.pop(),"black");
+            }
+            setTimeout(arguments.callee, 150);      
+                                    //Execute the function once every 0.15s, to adjust the speed of snake body
+        }();             
 </script>
+</body>
 </html>
