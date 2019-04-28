@@ -23,3 +23,16 @@ var inorderTraversal = function(root) {
     
     return result;
 };
+
+var test = function (root){
+    let result = [];
+    dfs(root);
+    function dsf(root){
+        if (root != null){
+            dfs(root.left);
+            result.push(root.val);
+            dfs(root.right);
+        }
+    }
+    return result;
+}
