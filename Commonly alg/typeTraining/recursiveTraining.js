@@ -15,3 +15,19 @@ function isPalindrome(str){
 }
 var str = 'abba'
 isPalindrome(str)
+
+//Write a function that acceps an array and returns a flattened new array
+function flatten (oldArr){
+    let newArr = []
+    for (let i = 0; i < oldArr.length; i++){
+        if(Array.isArray(oldArr[i])){
+            newArr = newArr.concat(flatten(oldArr[i]))
+        } else{
+            newArr.push(oldArr[i])
+        }
+    }
+    return newArr;
+}
+
+flatten([1,[2,[3,4]],5])
+
