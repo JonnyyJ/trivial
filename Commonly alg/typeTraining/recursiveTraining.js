@@ -30,4 +30,16 @@ function flatten (oldArr){
 }
 
 flatten([1,[2,[3,4]],5])
-
+//write a function that accepts an object and if the value is even then returns the sum of them
+function nestedEvenSum(obj, sum=0) {
+    for (var key in obj) { 
+        if (typeof obj[key] === 'object'){ 
+            sum += nestedEvenSum(obj[key]); 
+        } else if (typeof obj[key] === 'number' && obj[key] % 2 === 0){ 
+            sum += obj[key]; 
+        }
+     } 
+    
+     return sum;
+}
+nestedEvenSum({c: 4,d: {a: 2, b:3}})
