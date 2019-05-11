@@ -43,3 +43,27 @@ function nestedEvenSum(obj, sum=0) {
      return sum;
 }
 nestedEvenSum({c: 4,d: {a: 2, b:3}})
+
+//write a function that accepts an object and returns an array and this array include all value
+function collectStrings(obj) {
+    let newArr = []
+    for (let key in obj) {
+        if (typeof obj[key] === 'string') {
+            newArr.push(obj[key])
+        } else if(typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+           newArr = newArr.concat(collectStrings(obj[key]))
+        }
+    }
+    return newArr
+}
+
+var obj = {
+        a: '1',
+        b: {
+            c: 2,
+            d: 'dd'
+        }
+    }
+
+collectStrings(obj)
+
