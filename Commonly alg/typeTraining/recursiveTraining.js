@@ -6,6 +6,7 @@ function reverse(str){
 }
 reverse('abc')
 
+
 //write a function that accepts a string of strings and compares one character from the front and back, if they are equal, it returns true, if not it returns false.
 function isPalindrome(str){
     if(str.length === 1) return true;
@@ -30,6 +31,7 @@ function flatten (oldArr){
 }
 
 flatten([1,[2,[3,4]],5])
+
 //write a function that accepts an object and if the value is even then returns the sum of them
 function nestedEvenSum(obj, sum=0) {
     for (var key in obj) { 
