@@ -40,6 +40,6 @@ var sortedListToBST = function(head) {
     }
     
     const root = tree(nodes);
-    
+         
     return root;
   };

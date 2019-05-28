@@ -14,3 +14,4 @@ var singleNumber = function(nums) {
     }
     return [...map][0][0]
 };
+
