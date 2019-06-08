@@ -27,3 +27,5 @@ var removeElements = function(head, val) {
     
     return root.next;
   };
+
+  var test
