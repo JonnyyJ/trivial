@@ -14,8 +14,6 @@ function isPalindrome(str){
     if(str[0] === str.slice(-1)) return isPalindrome(str.slice(1,-1))
     return false;
 }
-var str = 'abba'
-isPalindrome(str)
 
 //Write a function that acceps an array and returns a flattened new array
 function flatten (oldArr){

@@ -17,3 +17,14 @@ var isValid = function(s) {
     }
     return s === ''
   };
+
+  var test = (s) =>{
+      let length = s.length;
+      while(length > 0 && s.length){
+            s = s.replace(/\[\]|\{\}|\(\)/g, '');
+            length -= 2;
+      }
+       return s === ''
+
+  };
+  
