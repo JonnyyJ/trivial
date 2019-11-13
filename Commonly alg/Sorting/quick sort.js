@@ -1,42 +1,30 @@
-fuction quickSort(arr){
-    let left = 0,
-    right = arr.length - 1;
-    main(arr, left, right);
-    return arr;
-    function main(arr, left, right){
-        //set the condition of recursive
-        if(arr.length ===1){
-            return;
-        }
-        //get left pointer to prepare for next round of decompose
-        let index = partition(arr, left, right);
-        if(left<index - 1){
-            //continue to decompose the right array
-            main(arr, left, index-1);
-        }
-        if(index<right){
-            //decompose right array
-            main(arr, index, right);
-        }
+function quickSort(arr, left, right){
+    len = arr.length,
+    partitionIndex,
+    left = typeof left !== 'number' ? 0 : left,
+    right = typeof right !== 'number' ? len - 1 : right
+    
+    if(left < right){
+        partitionIndex = partition(arr, left, right)
+        quickSort(arr,left,partitionIndex - 1)
+        quickSort(arr,partitionIndex + 1, right)
     }
-    //the array decomposing function
-    function partition(arr, left, right){
-        //make the middle term as pivot
-        let pivot = arr[Math.floor((left+right)/2)];
-        //recursive until left>right
-        while(left<=right){
-            //continue right shifting the left pointer until it's value is not less than pivot
-            //if left still not more than right
-            if(left <= right){
-                //swap the value of both so that the value no greater than the pivot is on the left side, not less than the value of pivot on its right
-                [arr[left], arr[right]] = [arr[right]], arr[left];
-                //move the left pointer to the right and the right pointer to the left to prepare to start the next round, preventing the arr[left] and arr[right] from being equal to pivot and then causing an infinite loop
-                left ++;
-                right--;
+    return arr
+}
+function partition(arr, left, right){
+    let pivot = left,
+        index = pivot + 1
+        for(let i = index; i <=right; i++){
+            if(arr[i] < arr[pivot]){
+                swap(arr, i, index)
+                index++
             }
         }
-        //return the left pointer as basis for the next round of decomposition
-        return left;
-
-    }
+        swap(arr, pivot, index - 1)
+        return index - 1
+}
+function swap(arr, i, j){
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
