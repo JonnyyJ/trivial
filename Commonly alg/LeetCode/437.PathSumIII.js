@@ -21,3 +21,14 @@
       let total  = pre + root.val;
       return (total === sum) + sumHelper(root.left, total, sum) + sumHelper(root.right, total, sum);
     };
+
+   let pathSum = (root, sum) =>{
+     if(!root) return 0;
+     return sumHelper(root, 0, sum) + pathSum(root.left, sum) + pathSum(root.right, sum)
+   }
+  
+   let sumHelper = (root, pre, sum) =>{
+     if (!root) return 0;
+     let total = pre + root.val;
+     return (total === sum) + sumHelper(root.left, total, sum) + sumHelper(root.right, total, sum)
+   }

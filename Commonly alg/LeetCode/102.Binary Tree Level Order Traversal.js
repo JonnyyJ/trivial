@@ -31,4 +31,20 @@ var levelOrder = function(root) {
         result.push(current);
     }
     return result;
-};
+}; 
+
+var test = ()=>{
+    let result = [];
+    currentLevelNodes = [];
+    if(root)
+    currentLevelNodes.push(root);
+    while (currentLevelNodes.length > 0){
+        current = [];
+        let len = currentLevelNodes.length;
+        for(let i = 0; i < len; i++){
+            
+        }
+    }
+    
+
+}

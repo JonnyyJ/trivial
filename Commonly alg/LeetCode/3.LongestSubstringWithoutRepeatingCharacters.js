@@ -12,5 +12,3 @@ function lengthOfLongestSubstring(s) {
         return Math.max(max, i - left + 1);
     }, 0);
 }
-
-
