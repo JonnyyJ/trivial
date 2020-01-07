@@ -13,4 +13,4 @@ const checkPossibility = (nums) => {
       }
     }
     return true;
-  };
+  };1047
