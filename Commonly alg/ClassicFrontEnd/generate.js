@@ -1,12 +1,20 @@
-var generate = function(numRows) {
-    var res = [];
-    for(var i = 0; i < numRows; i++){
-        var arr = [1];
-        for(var j = 1; j < i; j++){
-            arr[j] = res[i-1][j] + res[i-1][j-1]
+var generate = function(numRows){
+    let triangle = [];
+    //if triangle length more than 0 add one line
+    if(numRows > 0) triangle.push([1]);
+    //if triangle length more than 1
+    if(numRows > 1) triangle.push([1, 1]);
+    for(let i = 1; i < numRows - 1;i++){
+        //add the first value 1
+        triangle.push([1]);
+        for(let j = 0; j < triangle[1].length - 1; j++){
+            //push the sum of two numbers in previous raw into current row 
+            triangle[i + 1].push(triangle[i][j] + triangle[i][j+1]);
+
         }
-        arr[i] = 1;
-        res.push(arr)
+        //add the ended value 1
+        triangle[i + 1].push(1)
     }
-    return res;
+    return triangle;
+
 }
