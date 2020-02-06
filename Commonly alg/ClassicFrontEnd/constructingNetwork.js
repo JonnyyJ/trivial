@@ -20,7 +20,7 @@ function main(){
     let cFrom = [];
     let cTo = [];
 
-    for(let i = 0; i < cEdges; i++){
+    for(let65 i = 0; i < cEdges; i++){
     const cFromTo = readLine().split('')
 
     cFrom.push(parseInt(cFromTo[0], 10))
