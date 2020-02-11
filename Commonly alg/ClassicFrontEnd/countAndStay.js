@@ -1,0 +1,3 @@
+var countAndStay = function(n){
+    
+}
